@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-import { features, modules } from '@config';
 
 export const getProductList = gql`
     query($url_key: String!) {

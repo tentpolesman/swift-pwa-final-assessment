@@ -1,22 +1,13 @@
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { purple } from '@material-ui/core/colors';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import gqlService from '@core_modules/custom-page/service/graphql';
+// import gqlService from '@core_modules/custom-page/service/graphql';
 import { subscribeNewsletter } from '@core_modules/custom-page/service/graphql/schema'
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        '& > * + *': {
-        marginTop: theme.spacing(2),
-        },
-    },
-}));
 
 const SubsButton = withStyles((theme) => ({
     root: {
@@ -32,7 +23,7 @@ const SubsButton = withStyles((theme) => ({
 
 const SubscribeNewsletter = () => {
 
-    const [inputEmail, setInputEmail] = useState("")
+    const [inputEmail, setInputEmail] = useState("");
     const [emailSubscribe, { data: newsletterData, loading: newsletterLoading, error: newsLetterError }] = useMutation(subscribeNewsletter);
     
     const handleInput = (event) => {
